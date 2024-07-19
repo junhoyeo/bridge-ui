@@ -75,13 +75,13 @@ export const getTransactionsFromIndexer = async (
     };
     console.log("Fetching transactions from indexer");
     if (ethAddress) {
-        const ethTransactions = await fetchTransactions(ethAddress, sourceChain, destinationChain);
+        const ethTransactions = await fetchTransactions(ethAddress, "ETHEREUM", destinationChain);
         console.log("Fetched eth transactions", ethTransactions);
         addUniqueTransactions(ethTransactions);
     }
 
     if (availAddress) {
-        const availTransactions = await fetchTransactions(availAddress, sourceChain, destinationChain);
+        const availTransactions = await fetchTransactions(availAddress, "AVAIL", destinationChain);
         console.log("Fetched avail transactions", availTransactions);
         addUniqueTransactions(availTransactions);
     }
